@@ -12,7 +12,7 @@ input_data() {
   confirm;
 }
 
-function confirm() {
+confirm() {
   echo -e "Token: \033[0;35m$inToken\033[0m"
   echo -e "Chat ID: \033[0;35m$inChatId\033[0m"
   read -p "${1:-Is it correct? [y/N]} "

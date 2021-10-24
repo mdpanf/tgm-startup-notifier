@@ -54,7 +54,7 @@ EOF
 }
 
 main() {
-  if [[ $EUID -eq 0 ]]; then
+  if [ $EUID -eq 0 ]; then
     echo -e "\n\033[0;31mRun script under non-root user\033[0m";
     echo "Abort";
     exit 1;

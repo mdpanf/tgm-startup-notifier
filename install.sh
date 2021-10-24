@@ -73,7 +73,10 @@ main() {
   echo -e "\n\033[0;33mTGM-notifier by Steio\033[0m"
 
   download;
-  echo -e "\n\033[0;32m== Config ==\033[0m"; input_data;
+  echo -e "\n\033[0;32m== Config ==\033[0m";
+  read -p "Input tgm-bot token: " inToken;
+  read -p "Input tgm chat_id: " inChatId;
+  confirm;
   sudo bash -c "$(declare -f install); install $inToken $inChatId"
 }
 

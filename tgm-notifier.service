@@ -1,0 +1,13 @@
+[Unit]
+Description=System startup Telegram notifier by Steio
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+Type=forking
+ExecStart=/opt/steio/tgm-notifier/startup-notifier.sh
+RestartSec=15
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

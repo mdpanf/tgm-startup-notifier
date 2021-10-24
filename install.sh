@@ -12,18 +12,14 @@ input_data() {
   confirm;
 }
 
-confirm() {
-    echo -e "Token: \033[0;35m$inToken\033[0m"
-    echo -e "Chat_id: \033[0;35m$inChatId\033[0m"
-    read -e -r -p "${1:-Is it correct? [y/N]} " response
-    case "$response" in
-        [yY][eE][sS]|[yY])
-            true
-            echo "Saving...";;
-        *)
-            false
-            input_data;;
-    esac
+function confirm() {
+  echo "$inToken"
+  echo "$inChatId"
+  read -p "$1 Is it correct? [y/N]: "
+  case $(echo $REPLY | tr '[A-Z]' '[a-z]') in
+      y|yes) echo "Saving..." ;;
+      *)     input_data ;;
+  esac
 }
 
 install() {
@@ -68,9 +64,7 @@ main() {
 
   download;
   echo -e "\n\033[0;32m== Config ==\033[0m";
-  read -p "Input tgm-bot token: " inToken;
-  read -p "Input tgm chat_id: " inChatId;
-  confirm;
+  input_data;
   sudo bash -c "$(declare -f install); install $inToken $inChatId"
 }
 

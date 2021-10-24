@@ -1,5 +1,7 @@
 # TGM-notifier
 
+![изображение](https://user-images.githubusercontent.com/60596919/138610876-4e62d4b1-66cd-4e0c-a3f6-4ee1e19fd248.png)
+
 ## Installation
 ```bash
 sh -c "$(curl -fsSL https://git.io/JiGPB)"

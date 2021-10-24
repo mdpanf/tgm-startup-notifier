@@ -15,7 +15,7 @@ input_data() {
 function confirm() {
   echo -e "Token: \033[0;35m$inToken\033[0m"
   echo -e "Chat ID: \033[0;35m$inChatId\033[0m"
-  read -e -p "${1:-\033[0;33mIs it correct?\033[0m [y/N]} "
+  read -p "${1:-Is it correct? [y/N]} "
   case $(echo $REPLY | tr '[A-Z]' '[a-z]') in
       y|yes) echo "Saving..." ;;
       *)     input_data ;;
@@ -66,6 +66,7 @@ main() {
   echo -e "\n\033[0;32m== Config ==\033[0m";
   input_data;
   sudo bash -c "$(declare -f install); install $inToken $inChatId"
+  echo -e "\n\033[0;32mThe system startup notifier is installed successfully!\033[0m"
 }
 
 main;

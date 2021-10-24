@@ -4,7 +4,7 @@
 
 ## Installation
 ```bash
-sh -c "$(curl -fsSL https://git.io/JiGPB)"
+bash -c "$(curl -fsSL https://git.io/JiGPB)"
 ```
 
 ## Get Telegram ID (Chat ID)

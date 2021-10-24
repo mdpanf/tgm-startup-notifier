@@ -13,9 +13,9 @@ input_data() {
 }
 
 function confirm() {
-  echo "$inToken"
-  echo "$inChatId"
-  read -p "$1 Is it correct? [y/N]: "
+  echo "Token: $inToken"
+  echo "ChatID: $inChatId"
+  read -p "$1Is it correct? [y/N]: "
   case $(echo $REPLY | tr '[A-Z]' '[a-z]') in
       y|yes) echo "Saving..." ;;
       *)     input_data ;;

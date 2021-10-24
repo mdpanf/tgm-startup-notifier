@@ -14,7 +14,7 @@ input_data() {
 
 function confirm() {
   echo "Token: \033[0;35m$inToken\033[0m"
-  echo "ChatID: \033[0;35m$inChatId\033[0m"
+  echo "Chat ID: \033[0;35m$inChatId\033[0m"
   read -e -p "${1:-\033[0;33mIs it correct?\033[0m [y/N]} "
   case $(echo $REPLY | tr '[A-Z]' '[a-z]') in
       y|yes) echo "Saving..." ;;

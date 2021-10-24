@@ -45,6 +45,7 @@ EOF
   echo -e "The .conf file is located at \033[0;36m/etc/steio/tgm-notifier.conf\033[0m"
 
   cd /opt/steio/tgm-notifier;
+  rm -rf /opt/steio/tgm-notifier/startup-notifier.sh
   cp /tmp/tgm-notifier/startup-notifier.sh ./startup-notifier.sh
   chmod a+x ./startup-notifier.sh
 

@@ -32,10 +32,6 @@ install() {
 
   chmod 777 /etc/steio -R
 
-  echo -e "Token: \033[0;35m$1\033[0m"
-  echo -e "Chat_id: \033[0;35m$2\033[0m"
-
-
   cat > /etc/steio/tgm-notifier.conf << EOF
 Token: $1
 Chat: $2
@@ -58,8 +54,6 @@ EOF
   systemctl daemon-reload
   systemctl start tgm-notifier.service
   systemctl enable tgm-notifier.service
-
-  echo "Maybe"
 
 }
 

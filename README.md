@@ -1,5 +1,5 @@
 # tgm-notifier
 
 ```bash
-curl -L https://git.io/JiGPB | bash
+sh -c "$(curl -fsSL https://git.io/JiGPB)"
 ```

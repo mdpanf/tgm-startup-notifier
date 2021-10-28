@@ -75,7 +75,7 @@ main() {
     fi;
   fi;
   sudo bash -c "$(declare -f install); install $TGMN_TOKEN $TGMN_CHAT"
-  echo -e "\n\033[0;32mThe system startup notifier is installed successfully!\033[0m"
+  echo -e "\n\033[0;32mDone!\033[0m"
 }
 
 main;

@@ -9,7 +9,7 @@ send_msg(){
   myOS=$(hostnamectl | grep System | cut -d':' -f2)
   myKernel=$(hostnamectl | grep Kernel | awk '{ print $2,$3 }')
   myArch=$(hostnamectl | grep Architecture | awk '{ print $2 }')
-  nowTime=$(date | awk '{ print $5,$6 }')
+  nowTime=$(date | awk '{ print $4,$5,$6 }')
   inetAddr=$(ip a | awk '{ if ($1 == "inet" ) print $2 }' | tr -s '\r\n' ' ')
   publicIp=$(wget -t 1 -qO- ipinfo.io/ip)
 

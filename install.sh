@@ -1,5 +1,7 @@
 #!/bin/bash
 
+CONF_FILE='/etc/steio/tgm-notifier.conf'
+
 download() {
   cd /tmp;
   rm -rf ./tgm-notifier
@@ -7,14 +9,14 @@ download() {
 }
 
 input_data() {
-  read -p "Input tgm-bot token: " inToken;
-  read -p "Input tgm chat_id: " inChatId;
+  read -p "Input tgm-bot token: " TGMN_TOKEN;
+  read -p "Input tgm chat_id: " TGMN_CHAT;
   confirm;
 }
 
 confirm() {
-  echo -e "Token: \033[0;35m$inToken\033[0m"
-  echo -e "Chat ID: \033[0;35m$inChatId\033[0m"
+  echo -e "TGM Token: \033[0;35m$TGMN_TOKEN\033[0m"
+  echo -e "TGM Chat ID: \033[0;35m$TGMN_CHAT\033[0m"
   read -p "${1:-Is it correct? [y/N]} "
   case $(echo $REPLY | tr '[A-Z]' '[a-z]') in
       y|yes) echo "Saving..." ;;
@@ -29,9 +31,10 @@ install() {
   chmod 777 /etc/steio -R
 
   cat > /etc/steio/tgm-notifier.conf << EOF
-Token: $1
-Chat: $2
-Icon: 🖥
+[Tgm natifier]
+TGMN_TOKEN=$1
+TGMN_CHAT=$2
+TGMN_ICON=🖥
 EOF
 
   echo -e "The .conf file is located at \033[0;36m/etc/steio/tgm-notifier.conf\033[0m"
@@ -64,8 +67,15 @@ main() {
 
   download;
   echo -e "\n\033[0;32m== Config ==\033[0m";
-  input_data;
-  sudo bash -c "$(declare -f install); install $inToken $inChatId"
+  if [ -f $CONF_FILE ]; then
+    . $CONF_FILE
+    if [ -z $TGMN_TOKEN ] || [ -z $TGMN_CHAT ]; then
+      input_data;
+    else
+      confirm;
+    fi;
+  fi;
+  sudo bash -c "$(declare -f install); install $TGMN_TOKEN $TGMN_CHAT"
   echo -e "\n\033[0;32mThe system startup notifier is installed successfully!\033[0m"
 }
 

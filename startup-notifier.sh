@@ -5,8 +5,8 @@ send_msg(){
   URL="https://api.telegram.org/bot${TGMN_TOKEN}/sendMessage"
   PARSE_MODE="HTML"
 
-  myName=$(hostname)
-  myOS=$(echo "$(hostnamectl | grep System | cut -d':' -f2)" | sed 's/\(.\)/\u\1/')
+  myName=$(hostname | sed 's/\(.\)/\u\1/')
+  myOS=$(hostnamectl | grep System | cut -d':' -f2)
   myKernel=$(hostnamectl | grep Kernel | awk '{ print $2,$3 }')
   myArch=$(hostnamectl | grep Architecture | awk '{ print $2 }')
   nowTime=$(date | awk '{ print $4,$5,$6 }')

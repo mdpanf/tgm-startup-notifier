@@ -31,7 +31,6 @@ install() {
   chmod 777 /etc/steio -R
 
   cat > /etc/steio/tgm-notifier.conf << EOF
-[Tgm natifier]
 TGMN_TOKEN=$1
 TGMN_CHAT=$2
 TGMN_ICON=🖥

@@ -6,7 +6,7 @@ send_msg(){
   PARSE_MODE="HTML"
 
   myName=$(hostname)
-  myOS=$(hostnamectl | grep System | cut -d':' -f2)
+  myOS=$(echo "$(hostnamectl | grep System | cut -d':' -f2)" | sed 's/\(.\)/\u\1/')
   myKernel=$(hostnamectl | grep Kernel | awk '{ print $2,$3 }')
   myArch=$(hostnamectl | grep Architecture | awk '{ print $2 }')
   nowTime=$(date | awk '{ print $4,$5,$6 }')

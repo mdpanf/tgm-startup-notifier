@@ -1,6 +1,7 @@
 # TGM-notifier
 
 ![изображение](https://user-images.githubusercontent.com/60596919/138611028-b29557df-b4f7-45df-8600-8fcd3d2afc3d.png)
+![image](https://user-images.githubusercontent.com/60596919/139302116-f0b03b63-4d4f-40b2-86ab-a1c0e34a695b.png)
 
 ## Installation
 ```bash

@@ -7,6 +7,11 @@
 bash -c "$(curl -fsSL https://git.io/JPIpP)"
 ```
 
+## Removal
+```bash
+soon
+```
+
 ## Get Telegram ID (Chat ID)
 
 1. Go to the bot [@getmyid_bot](https://t.me/getmyid_bot)
